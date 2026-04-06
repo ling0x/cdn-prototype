@@ -5,7 +5,7 @@ use axum::response::{IntoResponse, Response};
 use axum::routing::get;
 use axum::Router;
 use bytes::Bytes;
-use cache_2::{EdgeDirectory, EdgeFetchError, EdgePackageCache, OriginStore, Region};
+use cdn_prototype::{EdgeDirectory, EdgeFetchError, EdgePackageCache, OriginStore, Region};
 use clap::{Parser, Subcommand, ValueEnum};
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
@@ -17,7 +17,7 @@ use tracing::{info, Level};
 use url::Url;
 
 #[derive(Parser)]
-#[command(name = "cache-2", about = "Edge cache demo: origin + edge + regional routing hints")]
+#[command(name = "cdn-prototype", about = "Edge cache demo: origin + edge + regional routing hints")]
 struct Cli {
     #[command(subcommand)]
     command: Command,
@@ -73,7 +73,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_max_level(Level::INFO)
         .with_env_filter(
             tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "cache_2=info,tower_http=info".into()),
+                .unwrap_or_else(|_| "cdn_prototype=info,tower_http=info".into()),
         )
         .init();
 

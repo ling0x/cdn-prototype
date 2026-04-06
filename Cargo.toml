@@ -1,5 +1,5 @@
 [package]
-name = "cache-2"
+name = "cdn-prototype"
 version = "0.1.0"
 edition = "2024"
 

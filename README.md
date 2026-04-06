@@ -1,4 +1,4 @@
-# cache-2
+# cdn-prototype
 
 Edge-oriented package delivery demo in Rust: an **origin** that holds authoritative blobs, **edge** nodes that cache them with TTL and backfill on miss, and a small **regional routing directory** (GeoDNS-style hints) for picking preferred edge URLs.
 
@@ -112,14 +112,14 @@ Logging uses `tracing`. Override filters with `RUST_LOG`, for example:
 RUST_LOG=debug cargo run --release -- edge --origin http://127.0.0.1:8080
 ```
 
-Default filter if unset: `cache_2=info,tower_http=info`.
+Default filter if unset: `cdn_prototype=info,tower_http=info`.
 
 ## Library crate
 
-The package exposes a library named `cache_2` (Rust’s normalization of `cache-2`). Example:
+The package exposes a library named `cdn_prototype` (Rust’s normalization of `cdn-prototype`). Example:
 
 ```rust
-use cache_2::{EdgeDirectory, EdgePackageCache, Region};
+use cdn_prototype::{EdgeDirectory, EdgePackageCache, Region};
 use std::time::Duration;
 use url::Url;
 
